@@ -15,7 +15,7 @@ public class Main {
 		boolean check = true;
 		do {
 			System.out.print("Aggiungi elemento alla lista dei desideri: ");
-			elemento = scan.nextLine().toUpperCase();
+			elemento = scan.nextLine();
 			listaDesideri.add(elemento);
 			System.out.print("La tua lista contiene " + listaDesideri.size());
 			System.out.println(" desideri.");
@@ -23,10 +23,18 @@ public class Main {
 			risposta = scan.nextLine();
 			if (risposta.equals("n")) {
 				check = false;
-			} 
+			}
+			else if (risposta.equals("s")) {
+				check = true;
+			}
+			else {
+				System.out.println("Errore");
+				break;
+			}
 		} while (check);
 		//ordianiamo la lista in ordine alfabetico
 		Collections.sort(listaDesideri);
+		System.out.println("Ecco la tua lista:");
 		for (int i = 0; i < listaDesideri.size(); i++) {
 			System.out.println(listaDesideri.get(i));
 		}
